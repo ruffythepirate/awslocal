@@ -5,7 +5,7 @@ case $1 in
   PORT=4572 ;;
 "help")
   PORT=4572 ;; #JUST TO ENABLE help on root level of the command as well.
-"api gateway")
+"apigateway")
    PORT=4567 ;;
 "kinesis")
    PORT=4568 ;;

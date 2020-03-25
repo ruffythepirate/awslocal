@@ -1,0 +1,59 @@
+#!/bin/sh
+
+case $1 in
+"s3")
+  PORT=4572 ;;
+"help")
+  PORT=4572 ;; #JUST TO ENABLE help on root level of the command as well.
+"api gateway")
+   PORT=4567 ;;
+"kinesis")
+   PORT=4568 ;;
+"dynamodb")
+   PORT=4569 ;;
+"dynamodbstreams")
+   PORT=4570 ;;
+"s3")
+   PORT=4572 ;;
+"firehose")
+   PORT=4573 ;;
+"lambda")
+   PORT=4574 ;;
+"sns")
+   PORT=4575 ;;
+"sqs")
+   PORT=4576 ;;
+"redshift")
+   PORT=4577 ;;
+"elasticsearch service")
+   PORT=4578 ;;
+"ses")
+   PORT=4579 ;;
+"route53")
+   PORT=4580 ;;
+"cloudformation")
+   PORT=4581 ;;
+"cloudwatch")
+   PORT=4582 ;;
+"ssm")
+   PORT=4583 ;;
+"secretsmanager")
+   PORT=4584 ;;
+"stepfunctions")
+   PORT=4587 ;;
+"sts")
+   PORT=4592 ;;
+"iam")
+   PORT=4593 ;;
+"ec2")
+   PORT=4597 ;;
+"kms")
+   PORT=4599 ;;
+esac
+
+
+if [ -z "$PORT" ]; then
+  echo "Does not know the port number for localstack for the service $1. Update this script with the correct port number, or try another service name"
+  exit 1
+fi
+aws $@ --endpoint-url http://localhost:$PORT
